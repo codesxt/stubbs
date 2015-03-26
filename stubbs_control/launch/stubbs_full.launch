@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find stubbs_gazebo)/launch/stubbs.launch"/>
+	<include file="$(find stubbs_control)/launch/stubbs_control.launch"/>
+	<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/>
+	<node name="stubbs_view" pkg="image_view" type="image_view" args="image:=/stubbs/camera1/image_raw"/>
+</launch>
+
