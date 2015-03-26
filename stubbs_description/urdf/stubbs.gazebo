@@ -5,6 +5,22 @@
 			<robotNamespace>/stubbs</robotNamespace>
 		</plugin>
 	</gazebo>
+
+	<gazebo>
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>100</updateRate>
+			<leftJoint>left_wheel_hinge</leftJoint>
+			<rightJoint>right_wheel_hinge</rightJoint>
+			<wheelSeparation>${body_width+wheel_length}</wheelSeparation>
+			<wheelDiameter>${2*wheel_radius}</wheelDiameter>
+			<torque>5</torque>
+			<commandTopic>stubbs/cmd_vel</commandTopic>
+			<odometryTopic>stubbs/odom_diffdrive</odometryTopic>
+			<odometryFrame>odom</odometryFrame>
+			<robotBaseFrame>base_link</robotBaseFrame>
+		</plugin>
+	</gazebo>
 	
 	<gazebo reference="camera">
 	  <material>Gazebo/Blue</material>
@@ -42,10 +58,18 @@
 	<gazebo reference="body">
 		<material>Gazebo/White</material>
 	</gazebo>
+
 	<gazebo reference="left_wheel">
 		<material>Gazebo/White</material>
 	</gazebo>
+
 	<gazebo reference="right_wheel">
 		<material>Gazebo/White</material>
+	</gazebo>
+
+	<gazebo reference="caster_wheel">
+		<mu1>0.0</mu1>
+		<mu2>0.0</mu2>
+		<material>Gazebo/Red</material>
 	</gazebo>
 </robot>

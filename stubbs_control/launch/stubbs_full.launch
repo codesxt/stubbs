@@ -2,6 +2,10 @@
 	<include file="$(find stubbs_gazebo)/launch/stubbs.launch"/>
 	<include file="$(find stubbs_control)/launch/stubbs_control.launch"/>
 	<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/>
+	<!--
 	<node name="stubbs_view" pkg="image_view" type="image_view" args="image:=/stubbs/camera1/image_raw"/>
+	-->
+	<node name="turtle_teleop_key" pkg="turtlesim" type="turtle_teleop_key" args="/turtle1/cmd_vel:=/stubbs/cmd_vel"/>
+	<node name="rviz" pkg="rviz" type="rviz"/>
 </launch>
 
